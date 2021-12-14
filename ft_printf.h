@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/12 18:10:47 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/10 00:57:38 by pprussen         ###   ########.fr       */
+/*   Created: 2021/12/13 12:29:03 by pprussen          #+#    #+#             */
+/*   Updated: 2021/12/14 16:54:41 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdbool.h>
-# include "./libft/libft.h"
 
 // A format specifier follows this prototype:
 // %[flags][width][.precision][length]type
@@ -34,28 +33,21 @@ typedef struct s_specs
 	size_t	width;
 	bool	precision_dot;
 	size_t	precision;
+	char	*sub_str;
 	int		overall_length;
 }	t_specs;
 
-int		ft_printf(const char *string, ...);
-void	ft_initialise_specs(t_specs *specs);
-
-// EVAL SYNTAX
-int		ft_eval_flags(t_specs *specs, const char *string, int i);
-int		ft_eval_width(t_specs *specs, const char *string, int i);
-int		ft_eval_precision(t_specs *specs, const char *string, int i);
-
-// HANDLE TYPES
-void	ft_handle_decimal(t_specs *specs);
-
-// PUT DECIMAL
-size_t	ft_put_sign(t_specs *specs, size_t i);
-size_t	ft_put_rest(t_specs *specs, size_t len, size_t i, char char_to_put);
-size_t	ft_put_sub_str(t_specs *specs, char *sub_str, size_t i);
-
-// HELPERS
-int		ft_new_str_length(t_specs *specs, int new_length);
-char	*ft_create_new_str(t_specs *specs, char *nbr_str,
-			char *new_nbr_str, size_t new_length);
+int				ft_printf(const char *string, ...);
+int				ft_eval_specs(t_specs *specs, const char *string, int i);
+int				ft_atoi(const char *str);
+void			ft_handle_str(t_specs *specs);
+size_t			ft_strlen(const char *s);
+void			ft_handle_decimal(t_specs *specs);
+char			*ft_itoa_with_sign(t_specs *specs, int n);
+size_t			ft_put_char(t_specs *specs, size_t i, char to_print);
+void			ft_handle_udecimal(t_specs *specs);
+char			*ft_uitoa(unsigned int n);
+void			ft_handle_hex(t_specs *specs, char up_or_low);
+char			*ft_uitohex(unsigned int n);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/07 14:04:07 by pprussen          #+#    #+#              #
-#    Updated: 2021/12/10 00:59:40 by pprussen         ###   ########.fr        #
+#    Updated: 2021/12/14 16:54:00 by pprussen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,15 @@ LIBFT = ./libft/libft.a
 NAME = libftprintf.a
 
 SRCS = ft_printf.c \
-	ft_eval_syntax.c \
+	ft_eval_specs.c  \
+	ft_handle_str.c \
 	ft_handle_decimal.c \
-	ft_put_decimal.c
+	ft_itoa_with_sign.c \
+	ft_helpers.c \
+	ft_handle_udecimal.c \
+	ft_uitoa.c \
+	ft_handle_hex.c \
+	ft_uitohex.c
 
 OBJS = ${SRCS:.c=.o}
 

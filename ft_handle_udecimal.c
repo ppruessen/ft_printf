@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handle_decimal.c                                :+:      :+:    :+:   */
+/*   ft_handle_udecimal.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:09:23 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/14 04:33:02 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/14 13:05:13 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ static void	ft_put_precision(t_specs *specs)
 			i = ft_put_char(specs, i, '0');
 }
 
-void	ft_handle_decimal(t_specs *specs)
+void	ft_handle_udecimal(t_specs *specs)
 {
-	specs->sub_str = ft_itoa_with_sign(specs, va_arg(specs->args, int));
+	specs->sub_str = ft_uitoa(va_arg(specs->args, unsigned int));
 	if (specs->zero == true && specs->precision_dot == false)
 	{
 		ft_put_sign(specs);
