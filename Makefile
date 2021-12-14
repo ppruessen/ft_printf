@@ -6,7 +6,7 @@
 #    By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/07 14:04:07 by pprussen          #+#    #+#              #
-#    Updated: 2021/12/14 16:54:00 by pprussen         ###   ########.fr        #
+#    Updated: 2021/12/14 21:46:18 by pprussen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ SRCS = ft_printf.c \
 	ft_handle_udecimal.c \
 	ft_uitoa.c \
 	ft_handle_hex.c \
-	ft_uitohex.c
+	ft_ultohex.c \
+	ft_handle_char.c \
+	ft_handle_p.c
 
 OBJS = ${SRCS:.c=.o}
 

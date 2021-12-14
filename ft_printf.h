@@ -6,7 +6,7 @@
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 12:29:03 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/14 16:54:41 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/14 21:47:52 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 typedef struct s_specs
 {
-	va_list	args;		//argument to print out
+	va_list	args;
 	bool	minus;
 	bool	zero;
 	bool	hash;
@@ -48,6 +48,8 @@ size_t			ft_put_char(t_specs *specs, size_t i, char to_print);
 void			ft_handle_udecimal(t_specs *specs);
 char			*ft_uitoa(unsigned int n);
 void			ft_handle_hex(t_specs *specs, char up_or_low);
-char			*ft_uitohex(unsigned int n);
+char			*ft_ultohex(unsigned long n);
+void			ft_handle_char(t_specs *specs);
+void			ft_handle_p(t_specs *specs);
 
 #endif

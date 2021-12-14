@@ -6,7 +6,7 @@
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 13:36:57 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/14 17:21:46 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/14 22:33:19 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ int	ft_eval_precision(t_specs *specs, const char *string, int i)
 int	ft_eval_type(t_specs *specs, const char *string, int i)
 {
 	if (string[i] == '%')
-		write(1, "'%'\n", 4);
+		specs->overall_length += write(1, "%", 1);
 	else if (string[i] == 'c')
-		write(1, "'c'\n", 4);
+		ft_handle_char(specs);
 	else if (string[i] == 's')
 		ft_handle_str(specs);
 	else if (string[i] == 'p')
-		write(1, "'p'\n", 4);
+		ft_handle_p(specs);
 	else if (string[i] == 'd')
 		ft_handle_decimal(specs);
 	else if (string[i] == 'i')

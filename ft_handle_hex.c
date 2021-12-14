@@ -6,23 +6,23 @@
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:25:47 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/14 18:46:31 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/14 21:54:41 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_printf.h"
 #include"libft/libft.h"
 
-void	ft_lower_hex(t_specs *specs, char up_or_low)
+void	ft_upper_hex(t_specs *specs, char up_or_low)
 {
 	size_t	i;
 
-	if (up_or_low == 'x')
+	if (up_or_low == 'X')
 	{
 		i = 0;
 		while (specs->sub_str[i])
 		{
-			specs->sub_str[i] = ft_tolower(specs->sub_str[i]);
+			specs->sub_str[i] = ft_toupper(specs->sub_str[i]);
 			i++;
 		}
 	}
@@ -95,8 +95,9 @@ void	ft_put_rest(t_specs *specs)
 
 void	ft_handle_hex(t_specs *specs, char up_or_low)
 {
-	specs->sub_str = ft_uitohex(va_arg(specs->args, unsigned int));
-	ft_lower_hex(specs, up_or_low);
+	specs->sub_str = ft_ultohex((unsigned long)
+			va_arg(specs->args, unsigned int));
+	ft_upper_hex(specs, up_or_low);
 	if (specs->minus == true)
 	{
 		ft_put_hash(specs, up_or_low);

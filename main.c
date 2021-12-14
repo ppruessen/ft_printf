@@ -6,15 +6,14 @@
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 12:15:16 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/14 18:00:56 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/14 22:07:37 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdio.h>
+#include<limits.h>
 #include<assert.h>
 #include"ft_printf.h"
-
-#define LONG_MIN  (-__LONG_MAX__ -1L)
 
 int	main(void)
 {
@@ -314,6 +313,38 @@ int	main(void)
 	result_ft = ft_printf(" %012x ", LONG_MIN);
 	printf("'\nExpected	:'");
 	result_org = printf(" %012x ", LONG_MIN);
+	printf("'\n");
+	printf("Return ft: %d -- Return org: %d\n", result_ft, result_org);
+
+/*	Test 39 */
+	write(1, "\nTest 39\nGot		:'", 17);
+	result_ft = ft_printf(" %-3c", '0' - 256);
+	printf("'\nExpected	:'");
+	result_org = printf(" %-3c", '0' - 256);
+	printf("'\n");
+	printf("Return ft: %d -- Return org: %d\n", result_ft, result_org);
+	
+/*	Test 40 */
+	write(1, "\nTest 40\nGot		:'", 17);
+	result_ft = ft_printf(" %-1c %-2c %-3c ", 0, '1', '2');
+	printf("'\nExpected	:'");
+	result_org = printf(" %-1c %-2c %-3c ", 0, '1', '2');
+	printf("'\n");
+	printf("Return ft: %d -- Return org: %d\n", result_ft, result_org);
+
+/*	Test 41 */
+	write(1, "\nTest 41\nGot		:'", 17);
+	result_ft = ft_printf(" %-11p %-12p ", INT_MIN, INT_MAX);
+	printf("'\nExpected	:'");
+	result_org = printf(" %-11p %-12p ", INT_MIN, INT_MAX);
+	printf("'\n");
+	printf("Return ft: %d -- Return org: %d\n", result_ft, result_org);
+	
+/*	Test 42 */
+	write(1, "\nTest 42\nGot		:'", 17);
+	result_ft = ft_printf(" %p %p ", LONG_MIN, LONG_MAX);
+	printf("'\nExpected	:'");
+	result_org = printf(" %p %p ", LONG_MIN, LONG_MAX);
 	printf("'\n");
 	printf("Return ft: %d -- Return org: %d\n", result_ft, result_org);
 	

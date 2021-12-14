@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitohex.c                                       :+:      :+:    :+:   */
+/*   ft_ultohex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:49:14 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/14 16:47:23 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/14 22:05:25 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_printf.h"
 #include"libft/libft.h"
 
-static int	new_hex_len(unsigned int n)
+static int	new_hex_len(unsigned long n)
 {
 	int	i;
 
@@ -28,12 +28,12 @@ static int	new_hex_len(unsigned int n)
 	return (i);
 }
 
-static char	*new_hex_maker(char *new_str, unsigned int n, int length)
+static char	*new_hex_maker(char *new_str, unsigned long n, int length)
 {
 	int		i;
 	char	*base;
 
-	base = "0123456789ABCDEF";
+	base = "0123456789abcdef";
 	i = length;
 	while (length != 0)
 	{
@@ -45,7 +45,7 @@ static char	*new_hex_maker(char *new_str, unsigned int n, int length)
 	return (new_str);
 }
 
-char	*ft_uitohex(unsigned int n)
+char	*ft_ultohex(unsigned long n)
 {
 	char	*new_str;
 	int		length;
