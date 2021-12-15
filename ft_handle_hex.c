@@ -6,7 +6,7 @@
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:25:47 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/14 21:54:41 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:08:44 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,10 @@ void	ft_put_hash(t_specs *specs, char up_or_low)
 		specs->overall_length += write(1, "0X", 2);
 }
 
-void	ft_put_rest(t_specs *specs)
+void	ft_put_rest(t_specs *specs, size_t length)
 {
-	size_t	length;
 	size_t	i;
 
-	length = ft_strlen(specs->sub_str);
 	if (specs->sub_str[0] == '0' && specs->precision == 0
 		&& specs->precision_dot == true)
 		length--;
@@ -102,12 +100,12 @@ void	ft_handle_hex(t_specs *specs, char up_or_low)
 	{
 		ft_put_hash(specs, up_or_low);
 		ft_put_hex(specs);
-		ft_put_rest(specs);
+		ft_put_rest(specs, ft_strlen(specs->sub_str));
 	}
 	else
 	{
 		ft_put_hash(specs, up_or_low);
-		ft_put_rest(specs);
+		ft_put_rest(specs, ft_strlen(specs->sub_str));
 		ft_put_hex(specs);
 	}
 	free (specs->sub_str);
