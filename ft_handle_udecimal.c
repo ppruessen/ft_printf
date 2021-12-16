@@ -6,7 +6,7 @@
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:09:23 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/14 13:05:13 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/16 02:00:02 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_put_sub_str(t_specs *specs)
 	size_t	i;
 
 	i = 0;
-	if (specs->sub_str[i] == '0' && specs->precision_dot == true
+	if (specs->sub_str[i] == '0' && specs->precision_dot == 1
 		&& specs->precision == 0)
 		return ;
 	while (specs->sub_str[i] != '\0')
@@ -44,7 +44,7 @@ static void	ft_put_width(t_specs *specs)
 	char	to_put;
 
 	length = specs->width;
-	if (specs->zero == true && specs->precision_dot == false)
+	if (specs->zero == 1 && specs->precision_dot == 0)
 		to_put = '0';
 	else
 		to_put = ' ';
@@ -57,7 +57,7 @@ static void	ft_put_width(t_specs *specs)
 	if (specs->sign != '0')
 		length--;
 	i = 0;
-	if (specs->sub_str[i] == '0' && specs->precision_dot == true)
+	if (specs->sub_str[i] == '0' && specs->precision_dot == 1)
 		length++;
 	if (length > 0)
 		while ((int)i < length)
@@ -79,14 +79,14 @@ static void	ft_put_precision(t_specs *specs)
 void	ft_handle_udecimal(t_specs *specs)
 {
 	specs->sub_str = ft_uitoa(va_arg(specs->args, unsigned int));
-	if (specs->zero == true && specs->precision_dot == false)
+	if (specs->zero == 1 && specs->precision_dot == 0)
 	{
 		ft_put_sign(specs);
 		ft_put_width(specs);
 		ft_put_precision(specs);
 		ft_put_sub_str(specs);
 	}
-	else if (specs->minus == true)
+	else if (specs->minus == 1)
 	{
 		ft_put_sign(specs);
 		ft_put_precision(specs);

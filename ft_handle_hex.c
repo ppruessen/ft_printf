@@ -6,7 +6,7 @@
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:25:47 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/15 15:08:44 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/16 01:59:16 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_put_hex(t_specs *specs)
 	int		length;
 
 	if (specs->sub_str[0] == '0' && specs->precision == 0
-		&& specs->precision_dot == true)
+		&& specs->precision_dot == 1)
 		return ;
 	length = specs->precision - ft_strlen(specs->sub_str);
 	if (length > 0)
@@ -55,9 +55,9 @@ void	ft_put_hex(t_specs *specs)
 
 void	ft_put_hash(t_specs *specs, char up_or_low)
 {
-	if (specs->hash == true && up_or_low == 'x' && specs->sub_str[0] != '0')
+	if (specs->hash == 1 && up_or_low == 'x' && specs->sub_str[0] != '0')
 		specs->overall_length += write(1, "0x", 2);
-	else if (specs->hash == true && up_or_low == 'X'
+	else if (specs->hash == 1 && up_or_low == 'X'
 		&& specs->sub_str[0] != '0')
 		specs->overall_length += write(1, "0X", 2);
 }
@@ -67,7 +67,7 @@ void	ft_put_rest(t_specs *specs, size_t length)
 	size_t	i;
 
 	if (specs->sub_str[0] == '0' && specs->precision == 0
-		&& specs->precision_dot == true)
+		&& specs->precision_dot == 1)
 		length--;
 	if (specs->precision > length)
 		length = specs->precision;
@@ -75,14 +75,14 @@ void	ft_put_rest(t_specs *specs, size_t length)
 		length = specs->width - length;
 	else
 		return ;
-	if (specs->hash == true && specs->sub_str[0] != '0')
+	if (specs->hash == 1 && specs->sub_str[0] != '0')
 		length -= 2;
 	i = 0;
 	if (length > 0)
 	{
 		while (i < length)
 		{
-			if (specs->zero == true && specs->precision_dot == false)
+			if (specs->zero == 1 && specs->precision_dot == 0)
 				specs->overall_length += write(1, "0", 1);
 			else
 				specs->overall_length += write(1, " ", 1);
@@ -96,7 +96,7 @@ void	ft_handle_hex(t_specs *specs, char up_or_low)
 	specs->sub_str = ft_ultohex((unsigned long)
 			va_arg(specs->args, unsigned int));
 	ft_upper_hex(specs, up_or_low);
-	if (specs->minus == true)
+	if (specs->minus == 1)
 	{
 		ft_put_hash(specs, up_or_low);
 		ft_put_hex(specs);

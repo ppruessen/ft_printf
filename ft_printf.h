@@ -6,7 +6,7 @@
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 12:29:03 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/14 21:47:52 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/16 02:34:29 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include <stdlib.h>
-# include <stdbool.h>
 
 // A format specifier follows this prototype:
 // %[flags][width][.precision][length]type
@@ -26,12 +24,12 @@
 typedef struct s_specs
 {
 	va_list	args;
-	bool	minus;
-	bool	zero;
-	bool	hash;
+	int		minus;
+	int		zero;
+	int		hash;
 	char	sign;
 	size_t	width;
-	bool	precision_dot;
+	int		precision_dot;
 	size_t	precision;
 	char	*sub_str;
 	int		overall_length;

@@ -6,7 +6,7 @@
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 21:11:11 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/14 22:11:34 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/16 01:58:26 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_handle_char(t_specs *specs)
 	char	char_to_print;
 
 	char_to_print = va_arg(specs->args, int);
-	if (specs->minus == true)
+	if (specs->minus == 1)
 	{
 		ft_put_char(specs, 0, char_to_print);
 		ft_put_width(specs);

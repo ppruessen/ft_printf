@@ -6,7 +6,7 @@
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:28:03 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/13 16:29:18 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/16 01:59:41 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	ft_put_sub_str(t_specs *specs, size_t i)
 {
-	if (specs->precision_dot == true)
+	if (specs->precision_dot == 1)
 	{
 		while (i < specs->precision && specs->sub_str[i] != '\0')
 		{
@@ -37,7 +37,7 @@ static size_t	ft_put_rest(t_specs *specs, size_t i, char to_print)
 {
 	int	length;
 
-	if (specs->minus == true)
+	if (specs->minus == 1)
 	{
 		while (i < specs->width)
 		{
@@ -68,7 +68,7 @@ void	ft_handle_str(t_specs *specs)
 	i = 0;
 	if (specs->sub_str == NULL)
 		specs->sub_str = "(null)";
-	if (specs->minus == true)
+	if (specs->minus == 1)
 	{
 		i = ft_put_sub_str(specs, i);
 		i = ft_put_rest(specs, i, ' ');

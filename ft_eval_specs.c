@@ -6,7 +6,7 @@
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 13:36:57 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/14 22:33:19 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/16 01:58:03 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int	ft_eval_flags(t_specs *specs, const char *string, int i)
 		|| string[i] == '0' || string[i] == ' ')
 	{
 		if (string[i] == '-')
-			specs->minus = true;
+			specs->minus = 1;
 		else if (string[i] == '#')
-			specs->hash = true;
+			specs->hash = 1;
 		else if (string[i] == '+')
 			specs->sign = '+';
 		else if (string[i] == '0')
-			specs->zero = true;
+			specs->zero = 1;
 		else if (string[i] == ' ' && specs->sign != '+')
 			specs->sign = ' ';
 		i++;
@@ -47,7 +47,7 @@ int	ft_eval_precision(t_specs *specs, const char *string, int i)
 	if (string[i] == '.')
 	{
 		i++;
-		specs->precision_dot = true;
+		specs->precision_dot = 1;
 		specs->precision = ft_atoi(&string[i]);
 		while (string[i] >= '0' && string[i] <= '9')
 		{

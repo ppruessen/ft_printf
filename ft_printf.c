@@ -6,7 +6,7 @@
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 12:28:15 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/13 21:31:38 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/16 02:00:35 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_initialise_specs(t_specs *specs)
 {
-	specs->hash = false;
-	specs->minus = false;
+	specs->hash = 0;
+	specs->minus = 0;
 	specs->sign = '0';
-	specs->zero = false;
+	specs->zero = 0;
 	specs->width = 0;
-	specs->precision_dot = false;
+	specs->precision_dot = 0;
 	specs->precision = 0;
 	specs->sub_str = NULL;
 }
