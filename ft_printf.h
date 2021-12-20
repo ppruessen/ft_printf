@@ -6,7 +6,7 @@
 /*   By: pprussen <pprussen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 12:29:03 by pprussen          #+#    #+#             */
-/*   Updated: 2021/12/16 02:34:29 by pprussen         ###   ########.fr       */
+/*   Updated: 2021/12/20 14:24:18 by pprussen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdlib.h>
 
 // A format specifier follows this prototype:
 // %[flags][width][.precision][length]type
